@@ -10,7 +10,7 @@ namespace MyFirstMauiApp.ViewModel
 
         public MainViewModel()
         {
-            Items = new ObservableCollection<string>();
+            Items = [];
         }
 
         [ObservableProperty]
@@ -22,12 +22,20 @@ namespace MyFirstMauiApp.ViewModel
         [RelayCommand]
         void Add()
         {
-            if (string.IsNullOrWhiteSpace(text))
+            if (string.IsNullOrWhiteSpace(Text))
                 return;
 
             Items.Add(Text);
+
             //add our item
             Text = string.Empty;
+        }
+
+        [RelayCommand]
+        void Delete(string s)
+        {
+            Items.Remove(s);
+
         }
     }
 }

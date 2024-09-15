@@ -38,10 +38,11 @@ namespace MyFirstMauiApp.ViewModel
 
         }
 
+        //Permet de changer de page vers DetailPage
         [RelayCommand]
         async Task Tap(string s)
         {
-            await Shell.Current.GoToAsync(nameof(DetailPage));
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
         }
 
     }
